@@ -1,7 +1,7 @@
 
 from sqlalchemy.orm import Session
-from ..models import candidate
-from backend import schemas
+from models import candidate
+import schemas
 
 def create_or_update_candidate(db: Session, data: schemas.CandidateCreate):
     existing = db.query(candidate.Candidate).filter(candidate.Candidate.email == data.email).first()
